@@ -39,6 +39,10 @@ header {
   z-index: 100;
 }
 
+header span {
+  color: var(--main-color);
+}
+
 .logo {
   font-size: 3rem;
   color: var(--white-color);
