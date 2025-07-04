@@ -37,6 +37,20 @@ header {
   justify-content: space-between;
   align-items: center;
   z-index: 100;
+  visibility: hidden;
+  opacity: 0;
+}
+
+header.active {
+  animation: show-header 1.5s linear forwards;
+  animation-delay: 1.2s;
+}
+
+@keyframes show-header {
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
 header span {
@@ -67,21 +81,66 @@ nav a.active {
   display: none;
 }
 
+.bars-box {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.bars-box .bar {
+  width: 100%;
+  height: 100%;
+  background: var(--bg-color);
+   animation: hide-bars 0.5s ease-in-out both;
+  animation-delay: calc(0.1s * var(--i));
+}
+
+@keyframes hide-bars {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+.bars-box.active .bar {
+  animation: show-bars 0.5s ease-in-out both;
+  animation-delay: calc(0.1s * var(--i));
+}
+
+@keyframes show-bars {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 section {
   position: absolute;
   width: 100%;
   height: 100%;
   padding: 10rem 9% 2rem;
-  background: var(--bg-color);
+  /* background: var(--bg-color); */
   visibility: hidden;
   opacity: 0;
   overflow: hidden;
 }
 
 section.active {
-  visibility: visible;
-  opacity: 1;
-  overflow: auto;
+  animation: show-content 1.5s linear forwards;
+  animation-delay: 1.6s;
+}
+
+@keyframes show-content {
+  100% {
+    visibility: visible;
+    opacity: 1;
+    overflow: auto;
+  }
 }
 
 .home {
