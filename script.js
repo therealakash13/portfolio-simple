@@ -35,29 +35,75 @@ const activePage = () => {
   navbar.classList.remove("active");
 };
 
-navLinks.forEach((link, idx) => {
-  link.addEventListener("click", () => {
+// navLinks.forEach((link, idx) => {
+//   link.addEventListener("click", () => {
+//     if (!link.classList.contains("active")) {
+//       activePage();
+
+//       link.classList.add("active");
+
+//       setTimeout(() => {
+//         sections[idx].classList.add("active");
+//       }, 1000);
+//     }
+//   });
+// });
+
+navLinks.forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault(); // prevent default jump behavior
+
+    const targetId = link.getAttribute("href").substring(1);
+    const targetSection = document.getElementById(targetId);
+
     if (!link.classList.contains("active")) {
       activePage();
 
       link.classList.add("active");
 
       setTimeout(() => {
-        sections[idx].classList.add("active");
-      }, 1000);
+        targetSection.classList.add("active");
+        window.scrollTo({
+          top: targetSection.offsetTop,
+          behavior: "smooth",
+        });
+
+        // Optionally update URL hash without scrolling again
+        history.pushState(null, null, `#${targetId}`);
+      }, 500);
     }
   });
 });
 
-logoLink.addEventListener("click", () => {
+// logoLink.addEventListener("click", () => {
+//   if (!navLinks[0].classList.contains("active")) {
+//     activePage();
+
+//     navLinks[0].classList.add("active");
+
+//     setTimeout(() => {
+//       sections[0].classList.add("active");
+//     }, 1000);
+//   }
+// });
+
+logoLink.addEventListener("click", (e) => {
+  e.preventDefault();
+  const homeSection = document.getElementById("home");
+
   if (!navLinks[0].classList.contains("active")) {
     activePage();
 
     navLinks[0].classList.add("active");
 
     setTimeout(() => {
-      sections[0].classList.add("active");
-    }, 1000);
+      homeSection.classList.add("active");
+      window.scrollTo({
+        top: homeSection.offsetTop,
+        behavior: "smooth",
+      });
+      history.pushState(null, null, `#home`);
+    }, 500);
   }
 });
 
@@ -123,3 +169,15 @@ arrowLeft.addEventListener("click", () => {
 
   activePortfolio();
 });
+
+// Handle Let's Connect button
+const letsConnectBtn = document.querySelector('.lets-connect-btn'); // Add a class to your button
+if (letsConnectBtn) {
+  letsConnectBtn.addEventListener('click', () => {
+    activePage(); // hide all
+    navLinks[navLinks.length - 1].classList.add("active"); // assuming last link is "Contact"
+    setTimeout(() => {
+      sections[sections.length - 1].classList.add("active");
+    }, 1000);
+  });
+}

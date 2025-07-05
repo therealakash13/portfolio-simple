@@ -20,6 +20,7 @@
 
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -164,16 +165,16 @@ section.active {
   display: inline-block;
   color: transparent;
   -webkit-text-stroke: 0.07rem var(var(--main-color));
-  /* animation: display-text 16s linear infinite;
-  animation-delay: calc(-4s * var(--i)); */
+  animation: display-text 16s linear infinite;
+  animation-delay: calc(-4s * var(--i));
 }
 
-/* @keyframes display-text {
+@keyframes display-text {
   25%,
   100% {
     display: none;
   }
-} */
+}
 
 .home-detail h2 span::before {
   content: attr(data-text);
@@ -315,6 +316,85 @@ section.active {
 
 .heading span {
   color: var(--main-color);
+}
+
+/* About Me Section */
+.about-me {
+  background: var(--bg-color);
+  padding: 10rem 9% 5rem;
+}
+
+.about-me .heading {
+  font-size: 4.5rem;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.about-me .heading span {
+  color: var(--main-color);
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.about-img {
+  flex: 1 1 35rem;
+  max-width: 40rem;
+  text-align: center;
+}
+
+.about-img img {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 1rem;
+  object-fit: cover;
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.4);
+}
+
+.about-text {
+  flex: 1 1 45rem;
+}
+
+.about-text h3 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color: var(--white-color);
+}
+
+.about-text h3 span {
+  color: var(--main-color);
+}
+
+.about-text p {
+  font-size: 1.6rem;
+  color: var(--white-color);
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+}
+
+.about-text .btn {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 1rem 3rem;
+  font-size: 1.6rem;
+  background: var(--main-color);
+  color: var(--bg-color);
+  border: 0.2rem solid var(--main-color);
+  border-radius: 4rem;
+  font-weight: 500;
+  transition: 0.3s;
+  box-shadow: 0 0 1rem var(--main-color);
+}
+
+.about-text .btn:hover {
+  background: transparent;
+  color: var(--main-color);
+  box-shadow: none;
 }
 
 .resume-container {
@@ -763,6 +843,19 @@ section.active {
   .home-img .img-box {
     width: 35rem;
     height: 35rem;
+  }
+
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-text {
+    max-width: 100%;
+  }
+
+  .about-img {
+    max-width: 100%;
   }
 
   .resume-container,
