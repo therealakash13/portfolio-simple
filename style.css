@@ -351,9 +351,9 @@ section.active {
 .about-img img {
   width: 100%;
   max-width: 100%;
-  border-radius: 1rem;
+  border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 2rem var(--main-color);
 }
 
 .about-text {
