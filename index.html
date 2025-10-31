@@ -11,6 +11,10 @@
       rel="stylesheet"
     />
 
+    <!-- js -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="./script.js"></script>
+
     <!-- css -->
     <link href="./style.css" rel="stylesheet" />
   </head>
@@ -388,11 +392,11 @@
             <p class="num">03</p>
             <h3>BreView</h3>
             <p>
-              BreView is a personal book review manager that allows users
-                    to search books using the Google Books API, save them to
-                    their collection, and write personal reviews with ratings.
-                    Built with Node.js and Express, it uses PostgreSQL for data
-                    storage and EJS for rendering views.
+              BreView is a personal book review manager that allows users to
+              search books using the Google Books API, save them to their
+              collection, and write personal reviews with ratings. Built with
+              Node.js and Express, it uses PostgreSQL for data storage and EJS
+              for rendering views.
             </p>
             <div class="tech">
               <p>PostgreSQL, Axios, Node, Express</p>
@@ -413,10 +417,9 @@
             <p class="num">04</p>
             <h3>Travel Tracker</h3>
             <p>
-              A Travel Tracker application visualizes countries visited on
-                    a world map. Through this project, I deepened my
-                    understanding of backend logic, database, and real-time
-                    rendering.
+              A Travel Tracker application visualizes countries visited on a
+              world map. Through this project, I deepened my understanding of
+              backend logic, database, and real-time rendering.
             </p>
             <div class="tech">
               <p>Node, PostgreSQL, FileSystem</p>
@@ -431,7 +434,7 @@
               >
             </div>
           </div>
-          
+
           <div class="portfolio-detail">
             <p class="num">05</p>
           </div>
@@ -516,16 +519,32 @@
         </div>
 
         <div class="contact-box">
-          <form action="">
+          <form action="#" method="post" class="contact-form">
             <h2 class="heading">Contact <span>Me!</span></h2>
             <div class="field-box">
-              <input type="text" placeholder="Full Name" required />
-              <input type="email" placeholder="Email Address" required />
-              <input type="text" placeholder="Phone Number" required />
-              <input type="text" placeholder="Email Subject" required />
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Full Name"
+                required
+              />
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Email Address"
+                required
+              />
+              <input
+                type="text"
+                name="subject"
+                id="subject"
+                placeholder="Email Subject"
+              />
               <textarea
-                name=""
-                id=""
+                name="message"
+                id="message"
                 placeholder="Your Message"
                 required
               ></textarea>
@@ -535,8 +554,5 @@
         </div>
       </div>
     </section>
-
-    <!-- js -->
-    <script src="./script.js"></script>
   </body>
 </html>
